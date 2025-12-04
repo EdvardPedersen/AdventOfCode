@@ -13,17 +13,14 @@ pub fn main() !void {
         const real_line = line orelse break;
         const s_dir = real_line[0];
         const s_num = real_line[1..];
-        const num = try std.fmt.parseInt(i32, s_num, 10);
-        var remaining = @abs(num);
+        const num = try std.fmt.parseInt(u32, s_num, 10);
         var direction:i32 = 1;
         if(s_dir == 'L') direction = -1;
-        while(remaining != 0) {
-           remaining -= 1;
+        for(0..num) {
            current_val += direction;
            if(current_val == -1) current_val = 99;
            if(current_val == 100) current_val = 0;
            if(current_val == 0) sum_null += 1;
-           
         }
     } else |err| {
         return err;
