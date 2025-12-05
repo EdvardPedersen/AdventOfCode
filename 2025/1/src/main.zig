@@ -1,7 +1,7 @@
 const std = @import("std");
 
 pub fn main() !void {
-    const f = try std.fs.cwd().openFile("input.data", .{});
+    const f = try std.fs.cwd().openFile("input", .{});
     var read_buf:[100]u8 = undefined;
     var r = f.reader(std.testing.io, &read_buf);
     var i = &r.interface;
